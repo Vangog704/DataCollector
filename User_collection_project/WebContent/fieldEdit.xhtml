@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+>
+<h:head>
+	<title>UserDataCollector</title>
+	<h:outputStylesheet name="/style.css" />
+</h:head>
+<h:body>
+
+	<ui:composition template="mainTemplate.xhtml">
+		
+		<ui:define name="header-inner">
+			<p:panelGrid rows="1">
+				<div id="link"><p:link outcome="fields" value="Fields"/></div>
+				<div id="link"><p:link outcome="responses" value="Responses"/></div>
+			</p:panelGrid>
+		</ui:define>
+		
+		
+		<ui:define name="body-inner">
+		<div id="body-inner">
+		<h:form id="field">
+			<p:panelGrid columns="1" styleClass="companyHeaderGrid">
+				<p:column>
+				<div style="margin: 10px; width: 350px; hight: 40px; display: block;">
+					<p:outputLabel value="Lable: *" style="margin: 10px; display: block;"/>
+					<p:inputText id="lable" value="#{fieldRedact.lable}"
+						required="true" requiredMessage="fields lable is required"
+						validatorMessage="name can not begin with a number"
+						style="margin: 10px; width: 300px;">
+						<f:validateRegex pattern="^[a-zA-Z]+$" />
+					</p:inputText>
+					<p:message for="lable"/>
+				</div>
+				</p:column>
+				
+				<p:column>
+			<p:panelGrid id="typeselector" columns="1" style="width: 300px;" styleClass="companyHeaderGrid">
+					<p:column>
+						<p:outputLabel value="Type: *" style="margin: 10px; display: block;"/>
+						<p:selectOneMenu value="#{fieldRedact.type}"
+							style="width: 300px; margin: 10px;">
+							<f:selectItem itemLabel="SimpleText" 	itemValue="simpletext" 	/>
+				            <f:selectItem itemLabel="MultiText" 	itemValue="multitext" 	/>
+				            <f:selectItem itemLabel="ComboBox" 		itemValue="combobox" 	/>
+				            <f:selectItem itemLabel="ChackBox" 		itemValue="chackbox" 	/>
+				            <f:selectItem itemLabel="Date" 			itemValue="date" 		/>
+				            <f:selectItem itemLabel="Radio" 		itemValue="radio" 		/>						
+							<p:ajax execute="typeselect itemlist" update="typeselector" render="typeselector"/>
+						</p:selectOneMenu>
+					</p:column>
+					<p:column id="itemlist" rendered="#{fieldRedact.itemListRendered}">
+						<p:dataList id="options" value="#{fieldRedact.items}" var="it" itemType="none">
+							<f:facet name="header">
+								<p:inputText id="option" value="#{fieldRedact.option}" size="25"
+									style="margin-top: 10px;" />
+								<p:commandButton value="+" onclick="submit()">
+									<p:ajax execute="option" render="option" update="option"/>
+								</p:commandButton>
+							</f:facet>
+							#{it}
+						</p:dataList>
+						<p:message for="options"/>
+					</p:column>
+				</p:panelGrid>
+				</p:column>
+				<p:column>
+					<p:selectBooleanCheckbox value="#{fieldRedact.isActive}" style="margin: 10px;"/>
+					<p:outputLabel value="IsActive"/>
+					<br/>
+					<p:selectBooleanCheckbox value="#{fieldRedact.required}" style="margin: 10px;"/>
+					<p:outputLabel value="Required"/>
+				</p:column>
+					<p:column/>
+					<p:column>
+						<p:commandButton value="Submit" onclick="update()" action="#{fieldRedact.saveField}" style="margin: 20px;"/>
+						<p:commandButton value="Reset" style="margin: 20px;">
+							<p:ajax update="field" resetValues="true" />
+						</p:commandButton>
+					</p:column>
+			</p:panelGrid>
+		</h:form>	
+		</div>		
+		</ui:define>
+		
+		
+		<ui:define name="footer-inner">
+			
+		</ui:define>
+	
+	</ui:composition>
+</h:body>
+</html>

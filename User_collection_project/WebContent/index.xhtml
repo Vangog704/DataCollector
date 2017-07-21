@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html 
+	xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:c="http://java.sun.com/jsp/jstl/core"
+>
+<h:head>
+	<title>UserDataCollector</title>
+	<h:outputStylesheet name="/style.css"/>
+</h:head>
+<h:body>
+	<ui:composition template="mainTemplate.xhtml">
+		
+		<ui:define name="body-inner">
+			<h:form id="response" >
+				<p:panelGrid binding="#{dataCollector.panel}" style="margin: 20px;" styleClass="companyHeaderGrid">
+				
+				<p:column>
+					<p:commandButton value="Submit" onclick="update()" action="#{dataCollector.collect()}" style="margin: 20px;"/>
+					<p:commandButton value="Reset" style="margin: 20px;">
+						<p:ajax update="response" resetValues="true" />
+					</p:commandButton>
+				</p:column>
+		
+				</p:panelGrid>
+			</h:form>
+		</ui:define>
+		
+		
+		<ui:define name="footer-inner">
+
+		</ui:define>
+	
+	</ui:composition>
+</h:body>
+</html>

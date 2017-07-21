@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf14997804152380" configfile="/User_collection_project/WebContent/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="fields" x="135" y="216" id="pf14997806593231" referenceLink="//@navigationRule.0/@fromViewId|" outlinks="pf14997806593242 pf14997806593243 pf14997806593244" path="/*"/>
+  <nodes xsi:type="pageflow:PFPage" name="feilds.xhtml" x="302" y="151" id="pf14997806593245" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf14997806593242" path="/feilds.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="responses.xhtml" x="303" y="300" id="pf14997806593246" referenceLink="//@navigationRule.0/@navigationCase.1/@toViewId|" inlinks="pf14997806593243" path="/responses.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="fieldEdit.xhtml" x="108" y="336" id="pf14997806593247" referenceLink="//@navigationRule.0/@navigationCase.2/@toViewId|" inlinks="pf14997806593244" path="/fieldEdit.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="index.xhtml" x="96" y="480" id="pf14997966030748" referenceLink="//@navigationRule.1/@fromViewId|" outlinks="pf14997966030889" path="/index.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="congratulation.xhtml" x="277" y="480" id="pf149979660308810" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" inlinks="pf14997966030889" path="/congratulation.xhtml"/>
+  <links id="pf14997806593242" target="pf14997806593245" source="pf14997806593231" outcome="feilds"/>
+  <links id="pf14997806593243" target="pf14997806593246" source="pf14997806593231" outcome="responces"/>
+  <links id="pf14997806593244" target="pf14997806593247" source="pf14997806593231" outcome="fieldEdit"/>
+  <links id="pf14997966030889" target="pf149979660308810" source="pf14997966030748" outcome="congratulation"/>
+</pageflow:Pageflow>
