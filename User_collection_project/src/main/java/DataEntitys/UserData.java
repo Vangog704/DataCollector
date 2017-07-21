@@ -3,12 +3,27 @@ package DataEntitys;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.hibernate.sql.Select;
 import org.primefaces.json.JSONObject;
 
+import javax.persistence.*;
+
+import static javax.persistence.GenerationType.IDENTITY;
+
+@Entity
+@Table(name="UserData")
 public class UserData {
 	
 	//Declaration vars
+	@Id
+	@GeneratedValue(strategy = IDENTITY)
+	@javax.persistence.Column(name = "id", unique = true, nullable = false)
 	private Long id;
+
+	@ElementCollection(fetch = FetchType.EAGER)
+	@MapKeyColumn(name="key")
+	@Column(name="value")
+	@CollectionTable(name="USERDATA_DATA", joinColumns=@JoinColumn(name="id"))
 	private Map<String,String> data;
 	
 	//Constructors

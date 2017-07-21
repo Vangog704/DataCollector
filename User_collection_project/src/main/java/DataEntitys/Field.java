@@ -12,6 +12,7 @@ import javax.faces.component.UIInput;
 import javax.faces.component.UISelectItems;
 import javax.faces.context.FacesContext;
 import javax.faces.model.SelectItem;
+import javax.persistence.*;
 
 import org.primefaces.component.calendar.Calendar;
 import org.primefaces.component.column.Column;
@@ -23,13 +24,27 @@ import org.primefaces.component.selectbooleanbutton.SelectBooleanButton;
 import org.primefaces.component.selectonemenu.SelectOneMenu;
 import org.primefaces.component.selectoneradio.SelectOneRadio;
 
+@Entity
+@Table(name="Field")
 public class Field {
 
-	//Declaration vars   
+	//Declaration vars
+	@Id
+	@javax.persistence.Column(name = "name", unique = true, nullable = false)
 	private String lable;
+
+	@javax.persistence.Column(name="type", nullable = false)
 	private String type;
+
+	@javax.persistence.Column(name="isActive", nullable = false)
 	private boolean isActive;
+
+	@javax.persistence.Column(name="required", nullable = false)
 	private boolean required;
+
+	@ElementCollection(fetch = FetchType.EAGER)
+	@CollectionTable(name="items", joinColumns=@JoinColumn(name="item"))
+	@javax.persistence.Column(name="value")
 	private Set<String> items;
 	
 	//Constructors
@@ -37,8 +52,7 @@ public class Field {
 	{
 		items = new HashSet<String>();
 	};
-	
-	
+
 	//Methods
 	public void addItem(String item)
 	{
@@ -168,24 +182,28 @@ public class Field {
 	public void setLable(String lable) {
 		this.lable = lable;
 	}
+
 	public String getType() {
 		return type;
 	}
 	public void setType(String type) {
 		this.type = type;
 	}
+
 	public boolean getIsActive() {
 		return isActive;
 	}
 	public void setIsActive(boolean isActive) {
 		this.isActive = isActive;
 	}
+
 	public boolean getRequired() {
 		return required;
 	}
 	public void setRequired(boolean required) {
 		this.required = required;
 	}
+
 	public Set<String> getItems() {
 		return items;
 	}

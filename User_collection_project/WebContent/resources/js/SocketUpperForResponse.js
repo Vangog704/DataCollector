@@ -1,7 +1,9 @@
+var ws;
+
 window.onload = function(){
 
 			var lable = document.getElementById("lable");
-			var ws = new WebSocket("ws://localhost:8085/User_collection_project/responseChanegeSubscribe");
+			ws = new WebSocket("ws://localhost:8085/responseChanegeSubscribe");
 			ws.onopen = function() { console.log("Connection opened...") };
 			ws.onclose = function() { console.log("Connection closed...") };
 			ws.onmessage = function(evt) {
@@ -29,3 +31,7 @@ window.onload = function(){
 				row.parentNode.appendChild(newrow);
 			};
 		};
+
+window.onbeforeunload = function(e) {
+    ws.close();
+};

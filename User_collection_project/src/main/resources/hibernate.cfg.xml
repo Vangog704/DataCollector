@@ -14,14 +14,11 @@
         <property name="connection.pool_size">2</property>
         <property name="current_session_context_class">thread</property>
         <property name="hibernate.cache.region.factory_class">net.sf.ehcache.hibernate.EhCacheRegionFactory</property>
-        <property name="hibernate.cache.use_second_level_cache">"true"</property>
-        <property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
+        <property name="hibernate.cache.use_second_level_cache">false</property>
         <property name="show_sql">true</property>
         <property name="hbm2ddl.auto">create</property>
-<!--         <property name="hbm2ddl.auto">update</property> -->
         
-  <mapping resource="hbm/cfg/UserData.hbm.xml"/>
-  <mapping resource="hbm/cfg/Field.hbm.xml"/>
-  
+        <mapping class="DataEntitys.Field"/>
+        <mapping class="DataEntitys.UserData"/>
 </session-factory>
 </hibernate-configuration>
