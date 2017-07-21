@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="hibernate.cfg.xml/Hibernate">
+  <database-model serializer="dbm" rdbms="POSTGRES" format-version="4.3">
+    <root id="1"/>
+    <database id="2" parent="1" name="testdatabase">
+      <ObjectId>32900</ObjectId>
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </database>
+    <database id="3" parent="1" name="postgres">
+      <ObjectId>12401</ObjectId>
+    </database>
+    <database id="4" parent="1" name="javaproject">
+      <ObjectId>16393</ObjectId>
+    </database>
+    <schema id="5" parent="2" name="public">
+      <ObjectId>2200</ObjectId>
+      <IntrospectionTimestamp>2017-07-21.20:29:03.474</IntrospectionTimestamp>
+      <IntrospectionStateNumber>1586</IntrospectionStateNumber>
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="6" parent="2" name="pg_catalog">
+      <ObjectId>11</ObjectId>
+    </schema>
+    <schema id="7" parent="2" name="pg_toast">
+      <ObjectId>99</ObjectId>
+    </schema>
+    <schema id="8" parent="2" name="pg_temp_1">
+      <ObjectId>11848</ObjectId>
+    </schema>
+    <schema id="9" parent="2" name="pg_toast_temp_1">
+      <ObjectId>11849</ObjectId>
+    </schema>
+    <schema id="10" parent="2" name="information_schema">
+      <ObjectId>12113</ObjectId>
+    </schema>
+    <sequence id="11" parent="5" name="hibernate_sequence">
+      <ObjectId>33370</ObjectId>
+      <StateNumber>1552</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+    </sequence>
+    <sequence id="12" parent="5" name="userdata_id_seq">
+      <ObjectId>33464</ObjectId>
+      <StateNumber>1583</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+    </sequence>
+    <table id="13" parent="5" name="field">
+      <ObjectId>33450</ObjectId>
+      <StateNumber>1585</StateNumber>
+    </table>
+    <table id="14" parent="5" name="items">
+      <ObjectId>33458</ObjectId>
+      <StateNumber>1585</StateNumber>
+    </table>
+    <table id="15" parent="5" name="userdata">
+      <ObjectId>33466</ObjectId>
+      <StateNumber>1586</StateNumber>
+    </table>
+    <table id="16" parent="5" name="userdata_data">
+      <ObjectId>33472</ObjectId>
+      <StateNumber>1586</StateNumber>
+    </table>
+    <column id="17" parent="13" name="name">
+      <Position>1</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1581</StateNumber>
+    </column>
+    <column id="18" parent="13" name="isactive">
+      <Position>2</Position>
+      <DataType>boolean|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1581</StateNumber>
+    </column>
+    <column id="19" parent="13" name="required">
+      <Position>3</Position>
+      <DataType>boolean|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1581</StateNumber>
+    </column>
+    <column id="20" parent="13" name="type">
+      <Position>4</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1581</StateNumber>
+    </column>
+    <index id="21" parent="13" name="field_pkey">
+      <ObjectId>33456</ObjectId>
+      <ColNames>name</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="22" parent="13" name="field_pkey">
+      <ObjectId>33457</ObjectId>
+      <ColNames>name</ColNames>
+      <UnderlyingIndexName>field_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="23" parent="14" name="item">
+      <Position>1</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1582</StateNumber>
+    </column>
+    <column id="24" parent="14" name="value">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+      <StateNumber>1582</StateNumber>
+    </column>
+    <foreign-key id="25" parent="14" name="fk4wg47qa8rqb2h2fjaqmvhhs1c">
+      <ObjectId>33480</ObjectId>
+      <ColNames>item</ColNames>
+      <RefTableId>33450</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>field</RefTableName>
+      <RefKeyName>field_pkey</RefKeyName>
+      <RefColNames>name</RefColNames>
+    </foreign-key>
+    <column id="26" parent="15" name="id">
+      <Position>1</Position>
+      <DataType>bigint|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1583</StateNumber>
+      <SequenceName>userdata_id_seq</SequenceName>
+      <DefaultExpression>nextval(&apos;userdata_id_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <index id="27" parent="15" name="userdata_pkey">
+      <ObjectId>33470</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="28" parent="15" name="userdata_pkey">
+      <ObjectId>33471</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>userdata_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="29" parent="16" name="id">
+      <Position>1</Position>
+      <DataType>bigint|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1584</StateNumber>
+    </column>
+    <column id="30" parent="16" name="value">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+      <StateNumber>1584</StateNumber>
+    </column>
+    <column id="31" parent="16" name="key">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1584</StateNumber>
+    </column>
+    <index id="32" parent="16" name="userdata_data_pkey">
+      <ObjectId>33478</ObjectId>
+      <ColNames>id
+key</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="33" parent="16" name="userdata_data_pkey">
+      <ObjectId>33479</ObjectId>
+      <ColNames>id
+key</ColNames>
+      <UnderlyingIndexName>userdata_data_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="34" parent="16" name="fkfh12c06gxpkjkeyc4k6qb7iy0">
+      <ObjectId>33485</ObjectId>
+      <ColNames>id</ColNames>
+      <RefTableId>33466</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>userdata</RefTableName>
+      <RefKeyName>userdata_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+  </database-model>
+</dataSource>
