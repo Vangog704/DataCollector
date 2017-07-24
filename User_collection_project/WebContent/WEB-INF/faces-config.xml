@@ -2,21 +2,35 @@
 <faces-config version="2.0" xmlns="http://java.sun.com/xml/ns/javaee" 
    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
-   http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd"> 
+   http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd">
+
 	<navigation-rule>
 	    <from-view-id>/*</from-view-id>
 	    <navigation-case>
-	        <from-outcome>feilds</from-outcome>
-	        <to-view-id>/feilds.xhtml</to-view-id>
-	    </navigation-case>
+	        <from-outcome>fields</from-outcome>
+	        <to-view-id>/admin/fields.xhtml</to-view-id>
+			<redirect/>
+		</navigation-case>
 	    <navigation-case>
-	        <from-outcome>responces</from-outcome>
-        	<to-view-id>/responses.xhtml</to-view-id>
-    	</navigation-case>
+	        <from-outcome>responses</from-outcome>
+        	<to-view-id>/admin/responses.xhtml</to-view-id>
+			<redirect/>
+		</navigation-case>
 	    <navigation-case>
 	        <from-outcome>fieldEdit</from-outcome>
-        	<to-view-id>/fieldEdit.xhtml</to-view-id>
-    	</navigation-case>
+        	<to-view-id>/admin/fieldEdit.xhtml</to-view-id>
+			<redirect/>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>login</from-outcome>
+			<to-view-id>/login.xhtml</to-view-id>
+			<redirect/>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>index</from-outcome>
+			<to-view-id>/index.xhtml</to-view-id>
+			<redirect/>
+		</navigation-case>
 	</navigation-rule>
 	
 	<navigation-rule>
@@ -26,5 +40,5 @@
 	        <to-view-id>/congratulation.xhtml</to-view-id>
 	    </navigation-case>
 	</navigation-rule>
-	
+
 </faces-config>

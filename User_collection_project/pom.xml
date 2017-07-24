@@ -26,12 +26,6 @@
   <packaging>war</packaging>
   
 	<dependencies>
-	
-	<dependency>
-	    <groupId>javax.servlet</groupId>
-	    <artifactId>servlet-api</artifactId>
-	    <version>2.5</version>
-	</dependency>
 
 		<dependency>
 			<groupId>javax.websocket</groupId>
@@ -146,11 +140,6 @@
 		<version>1.2</version>
 	</dependency>
 
-	<dependency>
-		<groupId>javax.servlet</groupId>
-		<artifactId>servlet-api</artifactId>
-		<version>2.5</version>
-	</dependency>
 	<!-- Tomcat 6 need this -->
 	<dependency>
 		<groupId>com.sun.el</groupId>
@@ -163,6 +152,17 @@
     	<artifactId>primefaces</artifactId>
     	<version>6.1</version>
 	</dependency>
-	
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>4.0.0-b03</version>
+		</dependency>
+
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-web-api</artifactId>
+			<version>7.0</version>
+		</dependency>
+
 	</dependencies>
 </project>

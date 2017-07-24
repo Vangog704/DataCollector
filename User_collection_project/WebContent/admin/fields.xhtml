@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html 
+	xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+>
+<h:head>
+	<title>UserDataCollector</title>
+</h:head>
+<h:body>
+	<ui:composition template="/mainTemplate.xhtml">
+
+		<ui:define name="header-inner">
+			<p:panelGrid rows="1">
+				<h:form>
+					<div id="link"><p:commandLink action="#{logHandler.logout()}" value="Logout"/></div>
+					<div id="link"><p:commandLink action="fields" value="Fields"/></div>
+					<div id="link"><p:commandLink action="responses" value="Responses"/></div>
+				</h:form>
+			</p:panelGrid>
+		</ui:define>
+		
+		
+		<ui:define name="body-inner">
+			<h:form>
+		<p:button value="+Add Field" outcome="fieldEdit"/>
+	</h:form>
+		
+	<p:dataTable var="field" value="#{fieldsview.fields}" style="text-align: center;">
+		
+		<p:column headerText="Lable">
+			<h:outputText value="#{field.lable}"/>
+		</p:column>
+		
+		<p:column headerText="Type">
+			<h:outputText value="#{field.type}"/>
+		
+		</p:column>
+		
+		<p:column headerText="Required">
+			<p:selectBooleanButton value="#{field.required}" offLabel="false" onLabel="true" disabled="true" style="color: black;"/>
+		</p:column>
+		
+		<p:column headerText="Is Active">
+			<p:selectBooleanButton value="#{field.isActive}" offLabel="false" onLabel="true" disabled="true" style="color: black;"/>
+		</p:column>
+		
+		<p:column>
+			<p:link outcome="fieldEdit?fieldname=#{field.lable}" value="edit"/>
+		</p:column>
+		<p:column>
+			<p:link outcome="fields?fieldname=#{field.lable}" value="delete"/>
+		</p:column>
+		
+	</p:dataTable>
+		</ui:define>
+		
+		
+		<ui:define name="footer-inner">
+
+		</ui:define>
+	
+	</ui:composition>
+</h:body>
+</html>

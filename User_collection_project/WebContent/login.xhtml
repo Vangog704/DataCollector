@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+    <title>login</title>
+</h:head>
+<h:body>
+
+    <ui:composition template="/mainTemplate.xhtml">
+
+    <ui:define name="header-inner">
+        <p:panelGrid rows="1">
+            <h:form>
+                <div id="link"><p:commandLink action="fields" value="Fields" ajax="false"/></div>
+                <div id="link"><p:commandLink action="responses" value="Responses" ajax="false"/></div>
+            </h:form>
+        </p:panelGrid>
+    </ui:define>
+
+    <ui:define name="body-inner">
+    <div id="body-inner">
+    <h:form id="login">
+        <h3>You trying to go on secure page. Login first</h3>
+
+        <h:outputText value="Username" />
+        <p:inputText id="username" value="#{logHandler.user}"
+                     required="true" requiredMessage="field login cant be empty"
+                     validatorMessage="login must be consist of characters a-z, A-Z and digits"
+                     style="margin: 10px; width: 300px;">
+            <f:validateRegex pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$" />
+        </p:inputText>
+        <h:message for="username"/>
+        <br/><br/>
+
+        <h:outputText value="Password" />
+        <p:password id="password" value="#{logHandler.pwd}"
+                    required="true" requiredMessage="field login cant be empty"
+                    validatorMessage="password must be consist of characters a-z, A-Z and digits"
+                    style="margin: 10px; width: 300px;">
+            <f:validateRegex pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$" />
+        </p:password>
+        <h:message for="password"/>
+        <br/><br/>
+        <p:message for="login"/>
+        <p:commandButton action="#{logHandler.validateUsernamePassword()}" value="Login"/>
+    </h:form>
+    </div>
+    </ui:define>
+
+        <ui:define name="footer-inner">
+
+        </ui:define>
+
+    </ui:composition>
+</h:body>
+</html>

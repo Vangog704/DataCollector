@@ -3,6 +3,8 @@ package DataEntitys;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 import org.hibernate.sql.Select;
 import org.primefaces.json.JSONObject;
 
@@ -21,6 +23,7 @@ public class UserData {
 	private Long id;
 
 	@ElementCollection(fetch = FetchType.EAGER)
+	@Fetch(FetchMode.SELECT)
 	@MapKeyColumn(name="key")
 	@Column(name="value")
 	@CollectionTable(name="USERDATA_DATA", joinColumns=@JoinColumn(name="id"))

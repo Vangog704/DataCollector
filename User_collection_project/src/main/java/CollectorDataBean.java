@@ -68,6 +68,7 @@ public class CollectorDataBean implements Serializable {
 			if(paramname.startsWith("response:in_") && !paramname.endsWith("_focus"))
 			{
 				paramvalue = req.getParameter(paramname);
+				if(paramvalue.equals("")) continue;
 				paramname = (paramname.split("_"))[1];
 				System.out.println("name:["+paramname+"] value:["+paramvalue+"]");
 				data.getData().put(paramname, paramvalue);

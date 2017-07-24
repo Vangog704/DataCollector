@@ -14,6 +14,8 @@ import javax.faces.context.FacesContext;
 import javax.faces.model.SelectItem;
 import javax.persistence.*;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 import org.primefaces.component.calendar.Calendar;
 import org.primefaces.component.column.Column;
 import org.primefaces.component.inputtext.InputText;
@@ -43,6 +45,7 @@ public class Field {
 	private boolean required;
 
 	@ElementCollection(fetch = FetchType.EAGER)
+	@Fetch(FetchMode.SELECT)
 	@CollectionTable(name="items", joinColumns=@JoinColumn(name="item"))
 	@javax.persistence.Column(name="value")
 	private Set<String> items;

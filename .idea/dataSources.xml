@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="hibernate.cfg.xml/Hibernate" uuid="1530186f-8c24-45a8-94f3-f831aec235ab">
+    <data-source source="LOCAL" name="testdatabase@localhost" uuid="fe52d61c-e6c7-425d-ad91-0cb2c8c79b66">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
-      <imported>true</imported>
-      <remarks>$PROJECT_DIR$/User_collection_project/src/main/resources/hibernate.cfg.xml</remarks>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql://localhost:2319/testdatabase</jdbc-url>
       <driver-properties>
