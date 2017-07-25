@@ -8,7 +8,7 @@ import javax.servlet.http.HttpSession;
 import javax.swing.*;
 import java.io.IOException;
 
-@WebFilter(filterName = "AuthFilter", urlPatterns = { "*.xhtml" })
+@WebFilter(filterName = "AuthFilter", urlPatterns = { "/*" })
 public class AuthorizationFilter implements Filter {
 
     @Override
@@ -24,11 +24,11 @@ public class AuthorizationFilter implements Filter {
             HttpSession ses = reqt.getSession(false);
 
             String reqURI = reqt.getRequestURI();
-            if(reqURI.indexOf("/admin/") >= 0) {
+            if((reqURI.indexOf("/fields") >= 0) || (reqURI.indexOf("/responses") >= 0)) {
                 if (ses != null && ses.getAttribute("username") != null)
                     chain.doFilter(request, response);
                 else
-                    resp.sendRedirect(reqt.getContextPath() + "/login.xhtml");
+                    resp.sendRedirect(reqt.getContextPath() + "/login");
             }
             else {
                 chain.doFilter(request, response);

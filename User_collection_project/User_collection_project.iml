@@ -84,5 +84,8 @@
     <orderEntry type="library" name="Maven: org.primefaces:primefaces:6.1" level="project" />
     <orderEntry type="library" name="Maven: javax.servlet:javax.servlet-api:4.0.0-b03" level="project" />
     <orderEntry type="library" name="Maven: javax:javaee-web-api:7.0" level="project" />
+    <orderEntry type="library" name="Maven: org.ocpsoft.rewrite:rewrite-servlet:3.4.1.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.ocpsoft.rewrite:rewrite-config-prettyfaces:3.4.1.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.ocpsoft.rewrite:rewrite-integration-faces:3.4.1.Final" level="project" />
   </component>
 </module>

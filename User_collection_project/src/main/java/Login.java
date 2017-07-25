@@ -4,7 +4,6 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
-import javax.faces.event.ActionEvent;
 import javax.servlet.http.HttpSession;
 
 import DataEntities.DAO.Impl.UserDAOImpl;
@@ -49,19 +48,18 @@ public class Login implements Serializable {
         UserDAO UDAO = new UserDAOImpl();
         if (UDAO.validate(user, pwd)) {
             HttpSession session = SessionUtils.getSession();
-            session.setAttribute("username", user); System.out.println("responses");
+            session.setAttribute("username", user);
             return "responses";
         } else {
             FacesContext.getCurrentInstance().addMessage(
                     FacesContext.getCurrentInstance().getViewRoot().findComponent("login").getClientId(),
-                    new FacesMessage("login or password is wrong")); System.out.println("login");
+                    new FacesMessage("login or password is wrong"));
             return "login";
         }
     }
 
     //logout event, invalidate session
     public String logout() {
-        System.out.println("logout");
         HttpSession session = SessionUtils.getSession();
         session.invalidate();
         return "login";

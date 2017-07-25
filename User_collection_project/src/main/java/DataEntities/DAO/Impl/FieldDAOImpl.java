@@ -61,12 +61,12 @@ public class FieldDAOImpl implements FieldDAO
 	public boolean add(Field field) {
 		Session ses = null;
 		boolean res = true;
-		ses = HibernateUtil.getSessionFactory().openSession();
-		ses.beginTransaction();
-		ses.saveOrUpdate(field);
-		ses.getTransaction().commit();
-		try {
 
+		try {
+			ses = HibernateUtil.getSessionFactory().openSession();
+			ses.beginTransaction();
+			ses.saveOrUpdate(field);
+			ses.getTransaction().commit();
 		}
 		catch(Exception e) {
 			System.out.println("Exeption");
